@@ -2,21 +2,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package DTO;
 
 /**
  *
  * @author LAPTOPTOKYO
  */
-public class DangNhapModel {
+public class TaiKhoanDTO {
     private String strMaNV;
     private String strTaiKhoan;
     private String strMatKhau;
     
-    public DangNhapModel(){     
+    public TaiKhoanDTO(){     
     }
     
-    public DangNhapModel(String strMaNV,String strTaiKhoan,String strMatKhau){
+    public TaiKhoanDTO(String strMaNV,String strTaiKhoan,String strMatKhau){
         this.strMaNV = strMaNV;
         this.strTaiKhoan = strTaiKhoan;
         this.strMatKhau = strMatKhau;

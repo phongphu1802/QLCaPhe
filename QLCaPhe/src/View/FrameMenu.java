@@ -5,6 +5,7 @@
  */
 package View;
 
+import java.awt.Frame;
 import javax.swing.ImageIcon;
 
 /**
@@ -12,12 +13,20 @@ import javax.swing.ImageIcon;
  * @author LAPTOPTOKYO
  */
 public class FrameMenu extends javax.swing.JFrame {
-
+    private String strMaNV,strTenNV,strChucVu;
     /**
      * Creates new form FrameMenu
      */
     public FrameMenu() {
         initComponents();
+    }
+    public FrameMenu(String strMaNV,String strTenNV,String strChucVu) {
+        initComponents();
+        this.strMaNV=strMaNV;
+        this.strTenNV=strTenNV;
+        this.strChucVu=strChucVu;
+        jlbTenNhanVien2.setText(strTenNV);
+        jlbChucVu2.setText(strChucVu);
     }
 
     /**
@@ -32,27 +41,33 @@ public class FrameMenu extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        jlbMenuBanHang = new javax.swing.JLabel();
+        jlbNhapHang = new javax.swing.JLabel();
+        jlbNhanVien = new javax.swing.JLabel();
+        jlbKhahcHang = new javax.swing.JLabel();
+        jlbMon = new javax.swing.JLabel();
+        jlbKho = new javax.swing.JLabel();
+        jlbQuanLyLuong = new javax.swing.JLabel();
+        jlbChucVu = new javax.swing.JLabel();
+        jlbQLKhuyenMai = new javax.swing.JLabel();
+        jlbNhaCungCap = new javax.swing.JLabel();
+        jlbUuDaiThanhVien = new javax.swing.JLabel();
+        jlbQLCaLam = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        jlbClose = new javax.swing.JLabel();
+        jlbHiden = new javax.swing.JLabel();
+        jlbHeader = new javax.swing.JLabel();
+        jlbTenNhanVien1 = new javax.swing.JLabel();
+        jlbTenNhanVien2 = new javax.swing.JLabel();
+        jlbChucVu1 = new javax.swing.JLabel();
+        jlbChucVu2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Quản lý cà phê");
-        setBounds(new java.awt.Rectangle(0, 0, 1930, 1080));
+        setBounds(new java.awt.Rectangle(0, 0, 1920, 1050));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMaximizedBounds(new java.awt.Rectangle(0, 0, 1930, 1050));
-        setResizable(false);
+        setMaximizedBounds(new java.awt.Rectangle(0, 0, 1920, 1050));
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(null);
@@ -65,257 +80,257 @@ public class FrameMenu extends javax.swing.JFrame {
         jPanel2.setPreferredSize(new java.awt.Dimension(1801, 1000));
         jPanel2.setLayout(null);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/menubanhang1.jpg"))); // NOI18N
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jlbMenuBanHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/menubanhang1.jpg"))); // NOI18N
+        jlbMenuBanHang.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                jlbMenuBanHangMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel1MouseEntered(evt);
+                jlbMenuBanHangMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel1MouseExited(evt);
+                jlbMenuBanHangMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel1MousePressed(evt);
+                jlbMenuBanHangMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jLabel1MouseReleased(evt);
+                jlbMenuBanHangMouseReleased(evt);
             }
         });
-        jPanel2.add(jLabel1);
-        jLabel1.setBounds(0, 0, 400, 203);
+        jPanel2.add(jlbMenuBanHang);
+        jlbMenuBanHang.setBounds(0, 0, 400, 203);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/thongtincanhan1.jpg"))); // NOI18N
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        jlbNhapHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/nhaphang1.jpg"))); // NOI18N
+        jlbNhapHang.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
+                jlbNhapHangMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel2MouseEntered(evt);
+                jlbNhapHangMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel2MouseExited(evt);
+                jlbNhapHangMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel2MousePressed(evt);
+                jlbNhapHangMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jLabel2MouseReleased(evt);
+                jlbNhapHangMouseReleased(evt);
             }
         });
-        jPanel2.add(jLabel2);
-        jLabel2.setBounds(464, 0, 400, 203);
+        jPanel2.add(jlbNhapHang);
+        jlbNhapHang.setBounds(464, 0, 400, 200);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/khachhang1.jpg"))); // NOI18N
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        jlbNhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/nhanvien1.jpg"))); // NOI18N
+        jlbNhanVien.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
+                jlbNhanVienMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel4MouseEntered(evt);
+                jlbNhanVienMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel4MouseExited(evt);
+                jlbNhanVienMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel4MousePressed(evt);
+                jlbNhanVienMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jLabel4MouseReleased(evt);
+                jlbNhanVienMouseReleased(evt);
             }
         });
-        jPanel2.add(jLabel4);
-        jLabel4.setBounds(1392, 0, 400, 200);
+        jPanel2.add(jlbNhanVien);
+        jlbNhanVien.setBounds(928, 0, 400, 200);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/nhanvien1.jpg"))); // NOI18N
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        jlbKhahcHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/khachhang1.jpg"))); // NOI18N
+        jlbKhahcHang.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
+                jlbKhahcHangMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel3MouseEntered(evt);
+                jlbKhahcHangMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel3MouseExited(evt);
+                jlbKhahcHangMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel3MousePressed(evt);
+                jlbKhahcHangMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jLabel3MouseReleased(evt);
+                jlbKhahcHangMouseReleased(evt);
             }
         });
-        jPanel2.add(jLabel3);
-        jLabel3.setBounds(928, 0, 400, 200);
+        jPanel2.add(jlbKhahcHang);
+        jlbKhahcHang.setBounds(1392, 0, 400, 200);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/Mon1.jpg"))); // NOI18N
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+        jlbMon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/Mon1.jpg"))); // NOI18N
+        jlbMon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel5MouseClicked(evt);
+                jlbMonMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel5MouseEntered(evt);
+                jlbMonMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel5MouseExited(evt);
+                jlbMonMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel5MousePressed(evt);
+                jlbMonMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jLabel5MouseReleased(evt);
+                jlbMonMouseReleased(evt);
             }
         });
-        jPanel2.add(jLabel5);
-        jLabel5.setBounds(0, 230, 400, 200);
+        jPanel2.add(jlbMon);
+        jlbMon.setBounds(0, 230, 400, 200);
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/kho1.jpg"))); // NOI18N
-        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+        jlbKho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/kho1.jpg"))); // NOI18N
+        jlbKho.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel6MouseClicked(evt);
+                jlbKhoMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel6MouseEntered(evt);
+                jlbKhoMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel6MouseExited(evt);
+                jlbKhoMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel6MousePressed(evt);
+                jlbKhoMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jLabel6MouseReleased(evt);
+                jlbKhoMouseReleased(evt);
             }
         });
-        jPanel2.add(jLabel6);
-        jLabel6.setBounds(464, 230, 400, 200);
+        jPanel2.add(jlbKho);
+        jlbKho.setBounds(464, 230, 400, 200);
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/nhaphang1.jpg"))); // NOI18N
-        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+        jlbQuanLyLuong.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/quanlyluong1.jpg"))); // NOI18N
+        jlbQuanLyLuong.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel7MouseClicked(evt);
+                jlbQuanLyLuongMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel7MouseEntered(evt);
+                jlbQuanLyLuongMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel7MouseExited(evt);
+                jlbQuanLyLuongMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel7MousePressed(evt);
+                jlbQuanLyLuongMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jLabel7MouseReleased(evt);
+                jlbQuanLyLuongMouseReleased(evt);
             }
         });
-        jPanel2.add(jLabel7);
-        jLabel7.setBounds(928, 230, 400, 200);
+        jPanel2.add(jlbQuanLyLuong);
+        jlbQuanLyLuong.setBounds(1392, 230, 400, 200);
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/quanlyluong1.jpg"))); // NOI18N
-        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+        jlbChucVu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/chucvu1.jpg"))); // NOI18N
+        jlbChucVu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel8MouseClicked(evt);
+                jlbChucVuMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel8MouseEntered(evt);
+                jlbChucVuMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel8MouseExited(evt);
+                jlbChucVuMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel8MousePressed(evt);
+                jlbChucVuMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jLabel8MouseReleased(evt);
+                jlbChucVuMouseReleased(evt);
             }
         });
-        jPanel2.add(jLabel8);
-        jLabel8.setBounds(1392, 230, 400, 200);
+        jPanel2.add(jlbChucVu);
+        jlbChucVu.setBounds(928, 230, 400, 200);
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/chucvu1.jpg"))); // NOI18N
-        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+        jlbQLKhuyenMai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/khuyenmai1.jpg"))); // NOI18N
+        jlbQLKhuyenMai.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel9MouseClicked(evt);
+                jlbQLKhuyenMaiMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel9MouseEntered(evt);
+                jlbQLKhuyenMaiMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel9MouseExited(evt);
+                jlbQLKhuyenMaiMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel9MousePressed(evt);
+                jlbQLKhuyenMaiMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jLabel9MouseReleased(evt);
+                jlbQLKhuyenMaiMouseReleased(evt);
             }
         });
-        jPanel2.add(jLabel9);
-        jLabel9.setBounds(0, 460, 400, 200);
+        jPanel2.add(jlbQLKhuyenMai);
+        jlbQLKhuyenMai.setBounds(0, 460, 400, 200);
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/khuyenmai1.jpg"))); // NOI18N
-        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+        jlbNhaCungCap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/nhacungcap1.jpg"))); // NOI18N
+        jlbNhaCungCap.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel10MouseClicked(evt);
+                jlbNhaCungCapMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel10MouseEntered(evt);
+                jlbNhaCungCapMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel10MouseExited(evt);
+                jlbNhaCungCapMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel10MousePressed(evt);
+                jlbNhaCungCapMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jLabel10MouseReleased(evt);
+                jlbNhaCungCapMouseReleased(evt);
             }
         });
-        jPanel2.add(jLabel10);
-        jLabel10.setBounds(464, 460, 400, 200);
+        jPanel2.add(jlbNhaCungCap);
+        jlbNhaCungCap.setBounds(464, 460, 400, 200);
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/nhacungcap1.jpg"))); // NOI18N
-        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+        jlbUuDaiThanhVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/uudaithanhvien1.jpg"))); // NOI18N
+        jlbUuDaiThanhVien.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel11MouseClicked(evt);
+                jlbUuDaiThanhVienMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel11MouseEntered(evt);
+                jlbUuDaiThanhVienMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel11MouseExited(evt);
+                jlbUuDaiThanhVienMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel11MousePressed(evt);
+                jlbUuDaiThanhVienMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jLabel11MouseReleased(evt);
+                jlbUuDaiThanhVienMouseReleased(evt);
             }
         });
-        jPanel2.add(jLabel11);
-        jLabel11.setBounds(928, 460, 400, 200);
+        jPanel2.add(jlbUuDaiThanhVien);
+        jlbUuDaiThanhVien.setBounds(928, 460, 400, 200);
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/uudaithanhvien1.jpg"))); // NOI18N
-        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+        jlbQLCaLam.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/quanlycalam1.jpg"))); // NOI18N
+        jlbQLCaLam.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel12MouseClicked(evt);
+                jlbQLCaLamMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel12MouseEntered(evt);
+                jlbQLCaLamMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel12MouseExited(evt);
+                jlbQLCaLamMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel12MousePressed(evt);
+                jlbQLCaLamMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jLabel12MouseReleased(evt);
+                jlbQLCaLamMouseReleased(evt);
             }
         });
-        jPanel2.add(jLabel12);
-        jLabel12.setBounds(1392, 460, 400, 200);
+        jPanel2.add(jlbQLCaLam);
+        jlbQLCaLam.setBounds(1392, 460, 400, 200);
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/thongke1.jpg"))); // NOI18N
         jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -338,298 +353,322 @@ public class FrameMenu extends javax.swing.JFrame {
         jPanel2.add(jLabel13);
         jLabel13.setBounds(0, 690, 400, 200);
 
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/quanlycalam1.jpg"))); // NOI18N
-        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel14MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel14MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel14MouseExited(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel14MousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jLabel14MouseReleased(evt);
-            }
-        });
-        jPanel2.add(jLabel14);
-        jLabel14.setBounds(464, 690, 400, 200);
-
         jScrollPane2.setViewportView(jPanel2);
 
         jPanel1.add(jScrollPane2);
         jScrollPane2.setBounds(50, 400, 1820, 600);
 
+        jlbClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/close1.png"))); // NOI18N
+        jlbClose.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jlbCloseMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jlbCloseMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jlbCloseMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jlbCloseMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jlbCloseMouseReleased(evt);
+            }
+        });
+        jPanel1.add(jlbClose);
+        jlbClose.setBounds(1880, 5, 40, 40);
+
+        jlbHiden.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/an1.png"))); // NOI18N
+        jlbHiden.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jlbHidenMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jlbHidenMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jlbHidenMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jlbHidenMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jlbHidenMouseReleased(evt);
+            }
+        });
+        jPanel1.add(jlbHiden);
+        jlbHiden.setBounds(1835, 5, 40, 40);
+
+        jlbHeader.setBackground(new java.awt.Color(0, 0, 0));
+        jlbHeader.setOpaque(true);
+        jPanel1.add(jlbHeader);
+        jlbHeader.setBounds(0, 0, 1920, 50);
+
+        jlbTenNhanVien1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jlbTenNhanVien1.setText("Tên nhân viên:");
+        jPanel1.add(jlbTenNhanVien1);
+        jlbTenNhanVien1.setBounds(120, 120, 230, 60);
+
+        jlbTenNhanVien2.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jPanel1.add(jlbTenNhanVien2);
+        jlbTenNhanVien2.setBounds(360, 120, 500, 60);
+
+        jlbChucVu1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jlbChucVu1.setText("Chức vụ:");
+        jPanel1.add(jlbChucVu1);
+        jlbChucVu1.setBounds(120, 190, 150, 60);
+
+        jlbChucVu2.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jPanel1.add(jlbChucVu2);
+        jlbChucVu2.setBounds(270, 190, 300, 60);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1930, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1920, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1050, Short.MAX_VALUE)
         );
 
-        setBounds(0, 0, 1946, 1089);
+        setBounds(0, 0, 1920, 1050);
     }// </editor-fold>//GEN-END:initComponents
     
     //Icon để setIcon khi hover vào menu bán hàng 
-    private void jLabel1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseReleased
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/menubanhang2.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel1MouseReleased
+    private void jlbMenuBanHangMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbMenuBanHangMouseReleased
+        jlbMenuBanHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/menubanhang2.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbMenuBanHangMouseReleased
 
-    private void jLabel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MousePressed
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/menubanhang2.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel1MousePressed
+    private void jlbMenuBanHangMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbMenuBanHangMousePressed
+        jlbMenuBanHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/menubanhang2.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbMenuBanHangMousePressed
 
-    private void jLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseEntered
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/menubanhang2.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel1MouseEntered
+    private void jlbMenuBanHangMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbMenuBanHangMouseEntered
+        jlbMenuBanHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/menubanhang2.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbMenuBanHangMouseEntered
 
-    private void jLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseExited
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/menubanhang1.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel1MouseExited
+    private void jlbMenuBanHangMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbMenuBanHangMouseExited
+        jlbMenuBanHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/menubanhang1.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbMenuBanHangMouseExited
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    private void jlbMenuBanHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbMenuBanHangMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel1MouseClicked
+    }//GEN-LAST:event_jlbMenuBanHangMouseClicked
     
-    //Icon để setIcon khi hover vào menu thông tin cá nhân 
-    private void jLabel2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseReleased
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/thongtincanhan2.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel2MouseReleased
-
-    private void jLabel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MousePressed
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/thongtincanhan2.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel2MousePressed
-
-    private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/thongtincanhan2.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel2MouseEntered
-
-    private void jLabel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseExited
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/thongtincanhan1.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel2MouseExited
-
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel2MouseClicked
-    
+   
     //Icon để setIcon khi hover vào nhân viên
-    private void jLabel3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseReleased
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/nhanvien2.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel3MouseReleased
+    private void jlbNhanVienMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbNhanVienMouseReleased
+        jlbNhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/nhanvien2.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbNhanVienMouseReleased
 
-    private void jLabel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MousePressed
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/nhanvien2.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel3MousePressed
+    private void jlbNhanVienMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbNhanVienMousePressed
+        jlbNhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/nhanvien2.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbNhanVienMousePressed
 
-    private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/nhanvien2.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel3MouseEntered
+    private void jlbNhanVienMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbNhanVienMouseEntered
+        jlbNhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/nhanvien2.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbNhanVienMouseEntered
 
-    private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/nhanvien1.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel3MouseExited
+    private void jlbNhanVienMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbNhanVienMouseExited
+        jlbNhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/nhanvien1.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbNhanVienMouseExited
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+    private void jlbNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbNhanVienMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel3MouseClicked
+    }//GEN-LAST:event_jlbNhanVienMouseClicked
     
     //Icon để setIcon khi hover vào khách hàng
-    private void jLabel4MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseReleased
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/khachhang2.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel4MouseReleased
+    private void jlbKhahcHangMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbKhahcHangMouseReleased
+        jlbKhahcHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/khachhang2.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbKhahcHangMouseReleased
 
-    private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/khachhang12.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel4MousePressed
+    private void jlbKhahcHangMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbKhahcHangMousePressed
+        jlbKhahcHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/khachhang12.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbKhahcHangMousePressed
 
-    private void jLabel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseEntered
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/khachhang2.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel4MouseEntered
+    private void jlbKhahcHangMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbKhahcHangMouseEntered
+        jlbKhahcHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/khachhang2.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbKhahcHangMouseEntered
 
-    private void jLabel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseExited
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/khachhang1.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel4MouseExited
+    private void jlbKhahcHangMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbKhahcHangMouseExited
+        jlbKhahcHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/khachhang1.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbKhahcHangMouseExited
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+    private void jlbKhahcHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbKhahcHangMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel4MouseClicked
+    }//GEN-LAST:event_jlbKhahcHangMouseClicked
     
     //Icon để setIcon khi hover vào món
-    private void jLabel5MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseReleased
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/Mon2.jpg")));// NOI18N
-    }//GEN-LAST:event_jLabel5MouseReleased
+    private void jlbMonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbMonMouseReleased
+        jlbMon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/Mon2.jpg")));// NOI18N
+    }//GEN-LAST:event_jlbMonMouseReleased
 
-    private void jLabel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MousePressed
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/Mon2.jpg")));// NOI18N
-    }//GEN-LAST:event_jLabel5MousePressed
+    private void jlbMonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbMonMousePressed
+        jlbMon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/Mon2.jpg")));// NOI18N
+    }//GEN-LAST:event_jlbMonMousePressed
 
-    private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/Mon2.jpg")));// NOI18N
-    }//GEN-LAST:event_jLabel5MouseEntered
+    private void jlbMonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbMonMouseEntered
+        jlbMon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/Mon2.jpg")));// NOI18N
+    }//GEN-LAST:event_jlbMonMouseEntered
 
-    private void jLabel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseExited
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/Mon1.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel5MouseExited
+    private void jlbMonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbMonMouseExited
+        jlbMon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/Mon1.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbMonMouseExited
 
-    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+    private void jlbMonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbMonMouseClicked
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jLabel5MouseClicked
+    }//GEN-LAST:event_jlbMonMouseClicked
     
     //Icon để setIcon khi hover vào kho
-    private void jLabel6MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseReleased
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/kho2.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel6MouseReleased
+    private void jlbKhoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbKhoMouseReleased
+        jlbKho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/kho2.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbKhoMouseReleased
 
-    private void jLabel6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MousePressed
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/kho2.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel6MousePressed
+    private void jlbKhoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbKhoMousePressed
+        jlbKho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/kho2.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbKhoMousePressed
 
-    private void jLabel6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseEntered
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/kho2.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel6MouseEntered
+    private void jlbKhoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbKhoMouseEntered
+        jlbKho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/kho2.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbKhoMouseEntered
 
-    private void jLabel6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseExited
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/kho1.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel6MouseExited
+    private void jlbKhoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbKhoMouseExited
+        jlbKho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/kho1.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbKhoMouseExited
 
-    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+    private void jlbKhoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbKhoMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel6MouseClicked
+    }//GEN-LAST:event_jlbKhoMouseClicked
     
     //Icon để setIcon khi hover vào nhập hàng
-    private void jLabel7MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseReleased
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/nhaphang2.jpg"))); // NOI18N                                   
-    }//GEN-LAST:event_jLabel7MouseReleased
+    private void jlbNhapHangMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbNhapHangMouseReleased
+        jlbNhapHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/nhaphang2.jpg"))); // NOI18N                                   
+    }//GEN-LAST:event_jlbNhapHangMouseReleased
 
-    private void jLabel7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MousePressed
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/nhaphang2.jpg"))); // NOI18N                                  
-    }//GEN-LAST:event_jLabel7MousePressed
+    private void jlbNhapHangMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbNhapHangMousePressed
+        jlbNhapHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/nhaphang2.jpg"))); // NOI18N                                  
+    }//GEN-LAST:event_jlbNhapHangMousePressed
 
-    private void jLabel7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseEntered
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/nhaphang2.jpg"))); // NOI18N          
-    }//GEN-LAST:event_jLabel7MouseEntered
+    private void jlbNhapHangMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbNhapHangMouseEntered
+        jlbNhapHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/nhaphang2.jpg"))); // NOI18N          
+    }//GEN-LAST:event_jlbNhapHangMouseEntered
 
-    private void jLabel7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseExited
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/nhaphang1.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel7MouseExited
+    private void jlbNhapHangMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbNhapHangMouseExited
+        jlbNhapHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/nhaphang1.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbNhapHangMouseExited
 
-    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+    private void jlbNhapHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbNhapHangMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel7MouseClicked
+    }//GEN-LAST:event_jlbNhapHangMouseClicked
     
     //Icon để setIcon khi hover vào quản lý lương
-    private void jLabel8MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseReleased
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/quanlyluong2.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel8MouseReleased
+    private void jlbQuanLyLuongMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbQuanLyLuongMouseReleased
+        jlbQuanLyLuong.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/quanlyluong2.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbQuanLyLuongMouseReleased
 
-    private void jLabel8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MousePressed
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/quanlyluong2.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel8MousePressed
+    private void jlbQuanLyLuongMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbQuanLyLuongMousePressed
+        jlbQuanLyLuong.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/quanlyluong2.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbQuanLyLuongMousePressed
 
-    private void jLabel8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseEntered
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/quanlyluong2.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel8MouseEntered
+    private void jlbQuanLyLuongMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbQuanLyLuongMouseEntered
+        jlbQuanLyLuong.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/quanlyluong2.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbQuanLyLuongMouseEntered
 
-    private void jLabel8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseExited
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/quanlyluong1.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel8MouseExited
+    private void jlbQuanLyLuongMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbQuanLyLuongMouseExited
+        jlbQuanLyLuong.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/quanlyluong1.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbQuanLyLuongMouseExited
 
-    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+    private void jlbQuanLyLuongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbQuanLyLuongMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel8MouseClicked
+    }//GEN-LAST:event_jlbQuanLyLuongMouseClicked
     
     //Icon để setIcon khi hover vào chức vụ
-    private void jLabel9MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseReleased
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/chucvu2.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel9MouseReleased
+    private void jlbChucVuMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbChucVuMouseReleased
+        jlbChucVu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/chucvu2.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbChucVuMouseReleased
 
-    private void jLabel9MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MousePressed
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/chucvu2.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel9MousePressed
+    private void jlbChucVuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbChucVuMousePressed
+        jlbChucVu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/chucvu2.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbChucVuMousePressed
 
-    private void jLabel9MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseEntered
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/chucvu2.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel9MouseEntered
+    private void jlbChucVuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbChucVuMouseEntered
+        jlbChucVu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/chucvu2.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbChucVuMouseEntered
 
-    private void jLabel9MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseExited
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/chucvu1.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel9MouseExited
+    private void jlbChucVuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbChucVuMouseExited
+        jlbChucVu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/chucvu1.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbChucVuMouseExited
 
-    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
+    private void jlbChucVuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbChucVuMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel9MouseClicked
+    }//GEN-LAST:event_jlbChucVuMouseClicked
     
     //Icon để setIcon khi hover vào khuyến mãi
-    private void jLabel10MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseReleased
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/khuyenmai2.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel10MouseReleased
+    private void jlbQLKhuyenMaiMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbQLKhuyenMaiMouseReleased
+        jlbQLKhuyenMai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/khuyenmai2.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbQLKhuyenMaiMouseReleased
 
-    private void jLabel10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MousePressed
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/khuyenmai2.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel10MousePressed
+    private void jlbQLKhuyenMaiMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbQLKhuyenMaiMousePressed
+        jlbQLKhuyenMai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/khuyenmai2.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbQLKhuyenMaiMousePressed
 
-    private void jLabel10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseEntered
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/khuyenmai2.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel10MouseEntered
+    private void jlbQLKhuyenMaiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbQLKhuyenMaiMouseEntered
+        jlbQLKhuyenMai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/khuyenmai2.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbQLKhuyenMaiMouseEntered
 
-    private void jLabel10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseExited
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/khuyenmai1.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel10MouseExited
+    private void jlbQLKhuyenMaiMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbQLKhuyenMaiMouseExited
+        jlbQLKhuyenMai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/khuyenmai1.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbQLKhuyenMaiMouseExited
 
-    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+    private void jlbQLKhuyenMaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbQLKhuyenMaiMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel10MouseClicked
+    }//GEN-LAST:event_jlbQLKhuyenMaiMouseClicked
     
     //Icon để setIcon khi hover vào nhà cung cấp
-    private void jLabel11MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseReleased
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/nhacungcap2.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel11MouseReleased
+    private void jlbNhaCungCapMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbNhaCungCapMouseReleased
+        jlbNhaCungCap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/nhacungcap2.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbNhaCungCapMouseReleased
 
-    private void jLabel11MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MousePressed
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/nhacungcap2.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel11MousePressed
+    private void jlbNhaCungCapMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbNhaCungCapMousePressed
+        jlbNhaCungCap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/nhacungcap2.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbNhaCungCapMousePressed
 
-    private void jLabel11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseEntered
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/nhacungcap2.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel11MouseEntered
+    private void jlbNhaCungCapMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbNhaCungCapMouseEntered
+        jlbNhaCungCap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/nhacungcap2.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbNhaCungCapMouseEntered
 
-    private void jLabel11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseExited
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/nhacungcap1.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel11MouseExited
+    private void jlbNhaCungCapMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbNhaCungCapMouseExited
+        jlbNhaCungCap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/nhacungcap1.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbNhaCungCapMouseExited
 
-    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+    private void jlbNhaCungCapMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbNhaCungCapMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel11MouseClicked
+    }//GEN-LAST:event_jlbNhaCungCapMouseClicked
     
     //Icon để setIcon khi hover vào ưu đãi thành viên
-    private void jLabel12MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseReleased
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/uudaithanhvien2.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel12MouseReleased
+    private void jlbUuDaiThanhVienMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbUuDaiThanhVienMouseReleased
+        jlbUuDaiThanhVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/uudaithanhvien2.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbUuDaiThanhVienMouseReleased
 
-    private void jLabel12MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MousePressed
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/uudaithanhvien2.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel12MousePressed
+    private void jlbUuDaiThanhVienMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbUuDaiThanhVienMousePressed
+        jlbUuDaiThanhVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/uudaithanhvien2.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbUuDaiThanhVienMousePressed
 
-    private void jLabel12MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseEntered
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/uudaithanhvien2.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel12MouseEntered
+    private void jlbUuDaiThanhVienMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbUuDaiThanhVienMouseEntered
+        jlbUuDaiThanhVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/uudaithanhvien2.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbUuDaiThanhVienMouseEntered
 
-    private void jLabel12MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseExited
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/uudaithanhvien1.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel12MouseExited
+    private void jlbUuDaiThanhVienMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbUuDaiThanhVienMouseExited
+        jlbUuDaiThanhVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/uudaithanhvien1.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbUuDaiThanhVienMouseExited
 
-    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+    private void jlbUuDaiThanhVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbUuDaiThanhVienMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel12MouseClicked
+    }//GEN-LAST:event_jlbUuDaiThanhVienMouseClicked
     
     //Icon để setIcon khi hover vào thống kê
     private void jLabel13MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseReleased
@@ -653,25 +692,67 @@ public class FrameMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel13MouseClicked
 
     //Icon để setIcon khi hover vào ca làm
-    private void jLabel14MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseReleased
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/quanlycalam2.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel14MouseReleased
+    private void jlbQLCaLamMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbQLCaLamMouseReleased
+        jlbQLCaLam.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/quanlycalam2.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbQLCaLamMouseReleased
 
-    private void jLabel14MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MousePressed
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/quanlycalam2.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel14MousePressed
+    private void jlbQLCaLamMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbQLCaLamMousePressed
+        jlbQLCaLam.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/quanlycalam2.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbQLCaLamMousePressed
 
-    private void jLabel14MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseExited
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/quanlycalam1.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel14MouseExited
+    private void jlbQLCaLamMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbQLCaLamMouseExited
+        jlbQLCaLam.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/quanlycalam1.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbQLCaLamMouseExited
 
-    private void jLabel14MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseEntered
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/quanlycalam2.jpg"))); // NOI18N
-    }//GEN-LAST:event_jLabel14MouseEntered
+    private void jlbQLCaLamMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbQLCaLamMouseEntered
+        jlbQLCaLam.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quanly/quanlycalam2.jpg"))); // NOI18N
+    }//GEN-LAST:event_jlbQLCaLamMouseEntered
 
-    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
+    private void jlbQLCaLamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbQLCaLamMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel14MouseClicked
+    }//GEN-LAST:event_jlbQLCaLamMouseClicked
+    
+    //Icon để setIcon khi hover vào close
+    private void jlbCloseMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCloseMouseReleased
+        jlbClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Frame/close2.png"))); // NOI18N
+    }//GEN-LAST:event_jlbCloseMouseReleased
+
+    private void jlbCloseMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCloseMousePressed
+        jlbClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Frame/close2.png"))); // NOI18N
+    }//GEN-LAST:event_jlbCloseMousePressed
+
+    private void jlbCloseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCloseMouseEntered
+        jlbClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Frame/close2.png"))); // NOI18N
+    }//GEN-LAST:event_jlbCloseMouseEntered
+
+    private void jlbCloseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCloseMouseExited
+        jlbClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Frame/close1.png"))); // NOI18N
+    }//GEN-LAST:event_jlbCloseMouseExited
+
+    private void jlbCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCloseMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jlbCloseMouseClicked
+    
+    //Icon để setIcon khi hover vào hiden
+    private void jlbHidenMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbHidenMouseReleased
+        jlbHiden.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Frame/an2.png"))); // NOI18N
+    }//GEN-LAST:event_jlbHidenMouseReleased
+
+    private void jlbHidenMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbHidenMousePressed
+        jlbHiden.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Frame/an2.png"))); // NOI18N
+    }//GEN-LAST:event_jlbHidenMousePressed
+
+    private void jlbHidenMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbHidenMouseEntered
+        jlbHiden.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Frame/an2.png"))); // NOI18N
+    }//GEN-LAST:event_jlbHidenMouseEntered
+
+    private void jlbHidenMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbHidenMouseExited
+        jlbHiden.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Frame/an1.png"))); // NOI18N
+    }//GEN-LAST:event_jlbHidenMouseExited
+
+    private void jlbHidenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbHidenMouseClicked
+        setState(Frame.ICONIFIED);
+    }//GEN-LAST:event_jlbHidenMouseClicked
     
     /**
      * @param args the command line arguments
@@ -709,22 +790,28 @@ public class FrameMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel jlbChucVu;
+    private javax.swing.JLabel jlbChucVu1;
+    private javax.swing.JLabel jlbChucVu2;
+    private javax.swing.JLabel jlbClose;
+    private javax.swing.JLabel jlbHeader;
+    private javax.swing.JLabel jlbHiden;
+    private javax.swing.JLabel jlbKhahcHang;
+    private javax.swing.JLabel jlbKho;
+    private javax.swing.JLabel jlbMenuBanHang;
+    private javax.swing.JLabel jlbMon;
+    private javax.swing.JLabel jlbNhaCungCap;
+    private javax.swing.JLabel jlbNhanVien;
+    private javax.swing.JLabel jlbNhapHang;
+    private javax.swing.JLabel jlbQLCaLam;
+    private javax.swing.JLabel jlbQLKhuyenMai;
+    private javax.swing.JLabel jlbQuanLyLuong;
+    private javax.swing.JLabel jlbTenNhanVien1;
+    private javax.swing.JLabel jlbTenNhanVien2;
+    private javax.swing.JLabel jlbUuDaiThanhVien;
     // End of variables declaration//GEN-END:variables
 }

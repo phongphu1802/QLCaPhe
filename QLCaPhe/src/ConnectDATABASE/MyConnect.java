@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package ConnectDATABASE;
 
 import ConnectDATABASE.MyConnectUnit;
 import java.sql.ResultSet;
@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  *
  * @author LAPTOPTOKYO
  */
-public class ModelConnect {
+public class MyConnect {
     public static MyConnectUnit getDAO() throws Exception{
         return new MyConnectUnit("localhost","sa","123456789","csdlcaphe");
     }

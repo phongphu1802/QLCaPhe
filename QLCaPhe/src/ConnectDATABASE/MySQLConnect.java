@@ -36,13 +36,13 @@ public class MySQLConnect {
             this.url = "jdbc:sqlserver://" + this.Host + ";databaseName="+ this.Database+";user="+this.UserName+";password="+this.Password;
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             this.connect = DriverManager.getConnection(this.url);
-             if (connect != null) {
+            if (connect != null) {
                 System.out.println("Connected");
-                DatabaseMetaData dm = (DatabaseMetaData) connect.getMetaData();
-                System.out.println("Driver name: " + dm.getDriverName());
-                System.out.println("Driver version: " + dm.getDriverVersion());
-                System.out.println("Product name: " + dm.getDatabaseProductName());
-                System.out.println("Product version: " + dm.getDatabaseProductVersion());
+                //DatabaseMetaData dm = (DatabaseMetaData) connect.getMetaData();
+                //System.out.println("Driver name: " + dm.getDriverName());
+                //System.out.println("Driver version: " + dm.getDriverVersion());
+                //System.out.println("Product name: " + dm.getDatabaseProductName());
+                //System.out.println("Product version: " + dm.getDatabaseProductVersion());
             }
         }catch(Exception ex){
             System.err.println("Cannot connect database, " + ex);

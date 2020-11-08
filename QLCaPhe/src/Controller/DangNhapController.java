@@ -6,55 +6,50 @@
 package Controller;
 
 import ConnectDATABASE.MyConnectUnit;
-import Model.DangNhapModel;
-import Model.ModelConnect;
+import DTO.TaiKhoanDTO;
+import ConnectDATABASE.MyConnect;
+import DTO.NhanVienDTO;
+import Model.NhanVienModel;
+import Model.TaiKhoanModel;
+import View.FrameMenu;
 import java.sql.ResultSet;
 import static java.time.Clock.system;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author LAPTOPTOKYO
  */
 public class DangNhapController {
-    static ArrayList<DangNhapModel> dsnv=new ArrayList<DangNhapModel>();
-    MyConnectUnit connect;
-    ResultSet rsTaiKhoan;
-    public DangNhapController(){
-        try {
-            this.connect=ModelConnect.getDAO();
-        } catch (Exception ex) {
-            Logger.getLogger(DangNhapController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    public String kiemtra(String strTaiKhoan,String strMatKhau) throws Exception
+    static ArrayList<TaiKhoanDTO> arTK=new ArrayList<TaiKhoanDTO>();
+    static ArrayList<NhanVienDTO> arNV=new ArrayList<NhanVienDTO>();
+    TaiKhoanModel TKDangNhap = new TaiKhoanModel();
+    NhanVienModel TTNhanVien = new NhanVienModel();
+    public String DangNhapController(String strTaiKhoan,String strMatKhau) throws Exception
     {
-        String userkt="tentk ='"+strTaiKhoan+"'";
-        rsTaiKhoan=this.connect.Select("taikhoan", userkt);
-        //Đưa con trỏ về cuối rsTaiKhoan
-        while(rsTaiKhoan.next()){
-            DangNhapModel nv=new DangNhapModel();
-            nv.setStrMaNV(rsTaiKhoan.getString(1));
-            nv.setStrTaiKhoan(rsTaiKhoan.getString(2));
-            nv.setStrMatKhau(rsTaiKhoan.getString(3));
-            dsnv.add(nv);
-        }
-        //System.out.println(rsTaiKhoan.getRow());
+        //Tìm thông tin tài khoản khi biết tên Tài khoản
+        arTK=TKDangNhap.TaiKhoan(strTaiKhoan);
         //Kiểm tra xem Row có rỗng hay không nếu rỗng trả về 0 nghĩa là tài khoản không tồn tại
-        if(dsnv.size()==0)
+        if(arTK.size()==0)
         {
-            //System.out.println("Tài khoản không tồn tại");
+            JOptionPane.showMessageDialog(null,"Tài khoản "+strTaiKhoan+" không tồn tại.");
             return "Tài khoản không tồn tại";
         }
         else{
             //Nếu mật khẩu tài khoản trùng
-            System.out.println(dsnv.get(0).getStrMatKhau());
-            if(dsnv.get(0).getStrMatKhau().equals(strMatKhau))
+            if(arTK.get(0).getStrMatKhau().equals(strMatKhau))
             {
+                JOptionPane.showMessageDialog(null,"Đăng nhập thành công. Chào bạn "+strTaiKhoan+".");
+                //Tìm thông tin nhân viênkhi biết mã nhân viên
+                arNV=TTNhanVien.NhanVien(arTK.get(0).getStrMaNV());
+                FrameMenu Start= new FrameMenu(arTK.get(0).getStrMaNV(),arNV.get(0).getStrHoNV()+arNV.get(0).getStrTenNV(),arNV.get(0).getStrChucVu());
+                Start.setVisible(true);
                 return "Đăng nhập thành công";
             }
+            JOptionPane.showMessageDialog(null,"Đăng nhập không thành công. vui lòng nhập lại mật khẫu của "+strTaiKhoan+".");
             return "Đăng nhập không thành công";
         }
     }

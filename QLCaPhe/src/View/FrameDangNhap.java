@@ -188,19 +188,7 @@ public class FrameDangNhap extends javax.swing.JFrame {
         strMatKhau = jPasswordField1.getText();
         try {
             //System.out.println(strTaiKhoan+"-"+strMatKhau);
-            strKetQua = DangNhap.kiemtra(strTaiKhoan, strMatKhau);
-            if(strKetQua == "Đăng nhập thành công"){
-                System.out.println("Đăng nhập thành công");
-                JOptionPane.showMessageDialog(null,"Đăng nhập thành công. Chào bạn "+strTaiKhoan+".");
-                 FrameMenu Start= new FrameMenu();
-                Start.setVisible(true);
-            }else if(strKetQua == "Đăng nhập không thành công"){
-                System.out.println("Đăng nhập không thành công");
-                JOptionPane.showMessageDialog(null,"Đăng nhập không thành công. vui lòng nhập lại "+strTaiKhoan+".");
-            }else if(strKetQua == "Tài khoản không tồn tại"){
-                System.out.println("Tài khoản không tồn tại");
-                JOptionPane.showMessageDialog(null,"Tài khoản "+strTaiKhoan+" không tồn tại.");
-            }
+            strKetQua = DangNhap.DangNhapController(strTaiKhoan, strMatKhau);
         } catch (Exception ex) {
             Logger.getLogger(FrameDangNhap.class.getName()).log(Level.SEVERE, null, ex);
         }
