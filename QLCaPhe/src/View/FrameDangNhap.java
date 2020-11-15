@@ -33,16 +33,16 @@ public class FrameDangNhap extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        lbl_DangNhap1 = new javax.swing.JLabel();
+        lbl_User = new javax.swing.JLabel();
+        lbl_Password = new javax.swing.JLabel();
+        lbl_DangNhap = new javax.swing.JLabel();
+        lbl_NhapLai = new javax.swing.JLabel();
+        lbl_AnhRight = new javax.swing.JLabel();
+        lbl_AnhLeft = new javax.swing.JLabel();
+        txt_User = new javax.swing.JTextField();
+        cb_HienThi = new javax.swing.JCheckBox();
+        pf_Password = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Quản lý quán cà phê");
@@ -55,92 +55,92 @@ public class FrameDangNhap extends javax.swing.JFrame {
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.setLayout(null);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dangnhap/dangnhap.png"))); // NOI18N
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        lbl_DangNhap1.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
+        lbl_DangNhap1.setText("Đăng nhập");
+        lbl_DangNhap1.setInheritsPopupMenu(false);
+        jPanel1.add(lbl_DangNhap1);
+        lbl_DangNhap1.setBounds(290, 70, 224, 56);
+
+        lbl_User.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dangnhap/user.png"))); // NOI18N
+        jPanel1.add(lbl_User);
+        lbl_User.setBounds(180, 200, 50, 50);
+
+        lbl_Password.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dangnhap/password.png"))); // NOI18N
+        jPanel1.add(lbl_Password);
+        lbl_Password.setBounds(180, 270, 50, 70);
+
+        lbl_DangNhap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dangnhap/dangnhap.png"))); // NOI18N
+        lbl_DangNhap.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                lbl_DangNhapMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel1MouseEntered(evt);
+                lbl_DangNhapMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel1MouseExited(evt);
+                lbl_DangNhapMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel1MousePressed(evt);
+                lbl_DangNhapMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jLabel1MouseReleased(evt);
+                lbl_DangNhapMouseReleased(evt);
             }
         });
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(400, 410, 200, 50);
+        jPanel1.add(lbl_DangNhap);
+        lbl_DangNhap.setBounds(400, 410, 200, 50);
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
-        jLabel2.setText("Đăng nhập");
-        jLabel2.setInheritsPopupMenu(false);
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(290, 70, 224, 56);
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dangnhap/user.png"))); // NOI18N
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(180, 200, 50, 50);
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dangnhap/password.png"))); // NOI18N
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(180, 270, 50, 70);
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dangnhap/nhaplai.png"))); // NOI18N
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+        lbl_NhapLai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dangnhap/nhaplai.png"))); // NOI18N
+        lbl_NhapLai.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel5MouseClicked(evt);
+                lbl_NhapLaiMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel5MouseEntered(evt);
+                lbl_NhapLaiMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel5MouseExited(evt);
+                lbl_NhapLaiMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel5MousePressed(evt);
+                lbl_NhapLaiMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jLabel5MouseReleased(evt);
+                lbl_NhapLaiMouseReleased(evt);
             }
         });
-        jPanel1.add(jLabel5);
-        jLabel5.setBounds(190, 410, 200, 50);
+        jPanel1.add(lbl_NhapLai);
+        lbl_NhapLai.setBounds(190, 410, 200, 50);
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dangnhap/caphe.png"))); // NOI18N
-        jPanel1.add(jLabel6);
-        jLabel6.setBounds(570, 300, 220, 270);
+        lbl_AnhRight.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dangnhap/caphe.png"))); // NOI18N
+        jPanel1.add(lbl_AnhRight);
+        lbl_AnhRight.setBounds(570, 300, 220, 270);
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dangnhap/caphe1.png"))); // NOI18N
-        jPanel1.add(jLabel7);
-        jLabel7.setBounds(0, -20, 300, 240);
+        lbl_AnhLeft.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dangnhap/caphe1.png"))); // NOI18N
+        jPanel1.add(lbl_AnhLeft);
+        lbl_AnhLeft.setBounds(0, -20, 300, 240);
 
-        jTextField1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jTextField1.setText("Nhập tài khoản");
-        jTextField1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jTextField1.setPreferredSize(new java.awt.Dimension(400, 50));
-        jPanel1.add(jTextField1);
-        jTextField1.setBounds(240, 200, 400, 50);
+        txt_User.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        txt_User.setText("Nhập tài khoản");
+        txt_User.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txt_User.setPreferredSize(new java.awt.Dimension(400, 50));
+        jPanel1.add(txt_User);
+        txt_User.setBounds(240, 200, 400, 50);
 
-        jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jCheckBox1.setText("Hiển thị mật khẩu");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        cb_HienThi.setBackground(new java.awt.Color(255, 255, 255));
+        cb_HienThi.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        cb_HienThi.setText("Hiển thị mật khẩu");
+        cb_HienThi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                cb_HienThiActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox1);
-        jCheckBox1.setBounds(430, 350, 125, 25);
+        jPanel1.add(cb_HienThi);
+        cb_HienThi.setBounds(430, 350, 125, 25);
 
-        jPasswordField1.setText("Password");
-        jPasswordField1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jPasswordField1);
-        jPasswordField1.setBounds(240, 280, 400, 50);
+        pf_Password.setText("Password");
+        pf_Password.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(pf_Password);
+        pf_Password.setBounds(240, 280, 400, 50);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -157,35 +157,35 @@ public class FrameDangNhap extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        if(jCheckBox1.isSelected()) {
-            jPasswordField1.setEchoChar((char) 0);
+    private void cb_HienThiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_HienThiActionPerformed
+        if(cb_HienThi.isSelected()) {
+            pf_Password.setEchoChar((char) 0);
         } else {
-            jPasswordField1.setEchoChar('*');
+            pf_Password.setEchoChar('*');
         }
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_cb_HienThiActionPerformed
     
     //Tạo even cho nút Đăng Nhập
-    private void jLabel1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseReleased
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dangnhap/dangnhap1.png"))); // NOI18N
-    }//GEN-LAST:event_jLabel1MouseReleased
+    private void lbl_DangNhapMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_DangNhapMouseReleased
+        lbl_DangNhap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dangnhap/dangnhap1.png"))); // NOI18N
+    }//GEN-LAST:event_lbl_DangNhapMouseReleased
 
-    private void jLabel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MousePressed
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dangnhap/dangnhap1.png"))); // NOI18N
-    }//GEN-LAST:event_jLabel1MousePressed
+    private void lbl_DangNhapMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_DangNhapMousePressed
+        lbl_DangNhap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dangnhap/dangnhap1.png"))); // NOI18N
+    }//GEN-LAST:event_lbl_DangNhapMousePressed
 
-    private void jLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseEntered
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dangnhap/dangnhap1.png"))); // NOI18N
-    }//GEN-LAST:event_jLabel1MouseEntered
+    private void lbl_DangNhapMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_DangNhapMouseEntered
+        lbl_DangNhap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dangnhap/dangnhap1.png"))); // NOI18N
+    }//GEN-LAST:event_lbl_DangNhapMouseEntered
 
-    private void jLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseExited
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dangnhap/dangnhap.png"))); // NOI18N
-    }//GEN-LAST:event_jLabel1MouseExited
+    private void lbl_DangNhapMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_DangNhapMouseExited
+        lbl_DangNhap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dangnhap/dangnhap.png"))); // NOI18N
+    }//GEN-LAST:event_lbl_DangNhapMouseExited
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    private void lbl_DangNhapMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_DangNhapMouseClicked
         String strTaiKhoan, strMatKhau, strKetQua;
-        strTaiKhoan = jTextField1.getText();
-        strMatKhau = jPasswordField1.getText();
+        strTaiKhoan = txt_User.getText();
+        strMatKhau = pf_Password.getText();
         try {
             //System.out.println(strTaiKhoan+"-"+strMatKhau);
             strKetQua = DangNhap.DangNhapController(strTaiKhoan, strMatKhau);
@@ -195,29 +195,29 @@ public class FrameDangNhap extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(FrameDangNhap.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jLabel1MouseClicked
+    }//GEN-LAST:event_lbl_DangNhapMouseClicked
     
     //Tạo even cho nút Nhập lại
-    private void jLabel5MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseReleased
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dangnhap/nhaplai1.png"))); // NOI18N
-    }//GEN-LAST:event_jLabel5MouseReleased
+    private void lbl_NhapLaiMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_NhapLaiMouseReleased
+        lbl_NhapLai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dangnhap/nhaplai1.png"))); // NOI18N
+    }//GEN-LAST:event_lbl_NhapLaiMouseReleased
 
-    private void jLabel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MousePressed
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dangnhap/nhaplai1.png"))); // NOI18N
-    }//GEN-LAST:event_jLabel5MousePressed
+    private void lbl_NhapLaiMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_NhapLaiMousePressed
+        lbl_NhapLai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dangnhap/nhaplai1.png"))); // NOI18N
+    }//GEN-LAST:event_lbl_NhapLaiMousePressed
 
-    private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dangnhap/nhaplai1.png"))); // NOI18N
-    }//GEN-LAST:event_jLabel5MouseEntered
+    private void lbl_NhapLaiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_NhapLaiMouseEntered
+        lbl_NhapLai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dangnhap/nhaplai1.png"))); // NOI18N
+    }//GEN-LAST:event_lbl_NhapLaiMouseEntered
 
-    private void jLabel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseExited
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dangnhap/nhaplai.png"))); // NOI18N
-    }//GEN-LAST:event_jLabel5MouseExited
+    private void lbl_NhapLaiMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_NhapLaiMouseExited
+        lbl_NhapLai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dangnhap/nhaplai.png"))); // NOI18N
+    }//GEN-LAST:event_lbl_NhapLaiMouseExited
 
-    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        jTextField1.setText("Nhập tài khoản");
-        jPasswordField1.setText("password");
-    }//GEN-LAST:event_jLabel5MouseClicked
+    private void lbl_NhapLaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_NhapLaiMouseClicked
+        txt_User.setText("Nhập tài khoản");
+        pf_Password.setText("password");
+    }//GEN-LAST:event_lbl_NhapLaiMouseClicked
 
     /**
      * @param args the command line arguments
@@ -255,16 +255,16 @@ public class FrameDangNhap extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JCheckBox cb_HienThi;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lbl_AnhLeft;
+    private javax.swing.JLabel lbl_AnhRight;
+    private javax.swing.JLabel lbl_DangNhap;
+    private javax.swing.JLabel lbl_DangNhap1;
+    private javax.swing.JLabel lbl_NhapLai;
+    private javax.swing.JLabel lbl_Password;
+    private javax.swing.JLabel lbl_User;
+    private javax.swing.JPasswordField pf_Password;
+    private javax.swing.JTextField txt_User;
     // End of variables declaration//GEN-END:variables
 }

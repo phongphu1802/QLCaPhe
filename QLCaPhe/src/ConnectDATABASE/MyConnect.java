@@ -16,6 +16,6 @@ import javax.swing.JOptionPane;
  */
 public class MyConnect {
     public static MyConnectUnit getDAO() throws Exception{
-        return new MyConnectUnit("localhost","sa","123456789","csdlcaphe");
+        return new MyConnectUnit("localhost","sa","sa","csdlcaphe");
     }
 }
