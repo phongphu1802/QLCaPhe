@@ -5,7 +5,10 @@
  */
 package View;
 
+import View.FrameNhanVien;
 import java.awt.Frame;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
 /**
@@ -477,7 +480,12 @@ public class FrameMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_lbl_NhanVienMouseExited
 
     private void lbl_NhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_NhanVienMouseClicked
-        // TODO add your handling code here:
+        try {
+            FrameNhanVien s1=new FrameNhanVien();
+            s1.setVisible(true);
+        } catch (Exception ex) {
+            Logger.getLogger(FrameMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_lbl_NhanVienMouseClicked
     
     //Icon để setIcon khi hover vào khách hàng

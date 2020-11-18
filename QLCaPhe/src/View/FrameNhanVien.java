@@ -5,21 +5,58 @@
  */
 package View;
 
+import View.FrameSuaNhanVien;
+import View.FrameNhanVienBiAn;
+import Controller.NhanVienController;
+import DTO.NhanVienDTO;
 import java.awt.Frame;
+import java.util.ArrayList;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author LAPTOPTOKYO
  */
 public class FrameNhanVien extends javax.swing.JFrame {
-
+    static ArrayList<NhanVienDTO> arNV=new ArrayList<NhanVienDTO>();
+    NhanVienController NhanVien = new NhanVienController();
+    DefaultTableModel model;
     /**
      * Creates new form NewJFrame
      */
-    public FrameNhanVien() {
-        initComponents();
+     public void LoadDuLieu() throws Exception{
+        model=(DefaultTableModel) tbl_NhanVien.getModel();
+        arNV.clear();
+        arNV=NhanVien.LoadNhanVien();
+        int i=1;
+        for(NhanVienDTO nv:arNV){
+            if(nv.getiTrangThai()==1){
+                Vector row= new Vector();
+                row.add(i++);
+                row.add(nv.getStrMaNV());
+                row.add(nv.getStrHoNV());
+                row.add(nv.getStrTenNV());
+                row.add(nv.getStrGioiTinh());
+                row.add(nv.getStrNgaySinh());
+                row.add(nv.getStrDiaChi());
+                row.add(nv.getStrCMND());
+                row.add(nv.getStrSDT());
+                row.add(nv.getStrNgayVaoLam());
+                row.add(nv.getStrChucVu());
+                model.addRow(row);
+            }
+        }
+        model.fireTableDataChanged();
     }
-
+     
+    public FrameNhanVien() throws Exception {
+        initComponents();
+        LoadDuLieu();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -63,8 +100,16 @@ public class FrameNhanVien extends javax.swing.JFrame {
         lbl_AnNhanVien = new javax.swing.JLabel();
         txt_TimKiem = new javax.swing.JTextField();
         lbl_TimKiem = new javax.swing.JLabel();
+        lbl_NgaySinh1 = new javax.swing.JLabel();
+        lbl_NgaySinh2 = new javax.swing.JLabel();
+        lbl_NgayVaoLam1 = new javax.swing.JLabel();
+        lbl_NgayVaoLam2 = new javax.swing.JLabel();
+        dc_NgaySinhTu = new com.toedter.calendar.JDateChooser();
+        dc_NgaySinhDen = new com.toedter.calendar.JDateChooser();
+        dc_NgayVaoLamTu = new com.toedter.calendar.JDateChooser();
+        dc_NgayVaoLamDen = new com.toedter.calendar.JDateChooser();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
 
         pFrame.setBackground(new java.awt.Color(255, 255, 255));
@@ -171,7 +216,7 @@ public class FrameNhanVien extends javax.swing.JFrame {
         pn_MenuLeft.add(lbl_NhapHang);
         lbl_NhapHang.setBounds(0, 70, 200, 70);
 
-        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien2.png"))); // NOI18N
         lbl_NhanVien.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lbl_NhanVienMouseClicked(evt);
@@ -485,21 +530,22 @@ public class FrameNhanVien extends javax.swing.JFrame {
         pnContent.add(lbl_QuanLyNhanVien1);
         lbl_QuanLyNhanVien1.setBounds(700, 20, 380, 60);
 
+        tbl_NhanVien.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         tbl_NhanVien.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "STT", "Mã nhân viên", "Họ nhân viên", "Tên nhân viên", "Gioi tính", "Ngày sinh", "Địa chỉ", "CMND", "SĐT", "Ngày vào làm", "Chức vụ"
             }
         ));
         cpTableNhanVien.setViewportView(tbl_NhanVien);
+        if (tbl_NhanVien.getColumnModel().getColumnCount() > 0) {
+            tbl_NhanVien.getColumnModel().getColumn(0).setMinWidth(5);
+        }
 
         pnContent.add(cpTableNhanVien);
-        cpTableNhanVien.setBounds(50, 350, 1600, 600);
+        cpTableNhanVien.setBounds(50, 150, 1600, 800);
 
         lbl_ThemNhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nhanvien/themnhanvien1.png"))); // NOI18N
         lbl_ThemNhanVien.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -583,7 +629,7 @@ public class FrameNhanVien extends javax.swing.JFrame {
             }
         });
         pnContent.add(lbl_SuaNhanVien);
-        lbl_SuaNhanVien.setBounds(1430, 290, 100, 50);
+        lbl_SuaNhanVien.setBounds(1410, 90, 100, 50);
 
         lbl_AnNhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nhanvien/annhanvien1.png"))); // NOI18N
         lbl_AnNhanVien.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -604,7 +650,7 @@ public class FrameNhanVien extends javax.swing.JFrame {
             }
         });
         pnContent.add(lbl_AnNhanVien);
-        lbl_AnNhanVien.setBounds(1540, 290, 100, 50);
+        lbl_AnNhanVien.setBounds(1520, 90, 100, 50);
 
         txt_TimKiem.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         txt_TimKiem.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -624,8 +670,53 @@ public class FrameNhanVien extends javax.swing.JFrame {
         txt_TimKiem.setBounds(80, 40, 500, 30);
 
         lbl_TimKiem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nhanvien/timkiem1.png"))); // NOI18N
+        lbl_TimKiem.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_TimKiemMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lbl_TimKiemMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lbl_TimKiemMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lbl_TimKiemMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lbl_TimKiemMouseReleased(evt);
+            }
+        });
         pnContent.add(lbl_TimKiem);
         lbl_TimKiem.setBounds(580, 40, 30, 30);
+
+        lbl_NgaySinh1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        lbl_NgaySinh1.setText("Ngày sinh từ");
+        pnContent.add(lbl_NgaySinh1);
+        lbl_NgaySinh1.setBounds(100, 90, 100, 30);
+
+        lbl_NgaySinh2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        lbl_NgaySinh2.setText("đến");
+        pnContent.add(lbl_NgaySinh2);
+        lbl_NgaySinh2.setBounds(410, 90, 30, 30);
+
+        lbl_NgayVaoLam1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        lbl_NgayVaoLam1.setText("Ngày vào làm từ");
+        pnContent.add(lbl_NgayVaoLam1);
+        lbl_NgayVaoLam1.setBounds(690, 90, 130, 30);
+
+        lbl_NgayVaoLam2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        lbl_NgayVaoLam2.setText("đến");
+        pnContent.add(lbl_NgayVaoLam2);
+        lbl_NgayVaoLam2.setBounds(1030, 90, 30, 30);
+        pnContent.add(dc_NgaySinhTu);
+        dc_NgaySinhTu.setBounds(200, 90, 200, 30);
+        pnContent.add(dc_NgaySinhDen);
+        dc_NgaySinhDen.setBounds(450, 90, 200, 30);
+        pnContent.add(dc_NgayVaoLamTu);
+        dc_NgayVaoLamTu.setBounds(820, 90, 200, 30);
+        pnContent.add(dc_NgayVaoLamDen);
+        dc_NgayVaoLamDen.setBounds(1070, 90, 200, 30);
 
         pFrame.add(pnContent);
         pnContent.setBounds(220, 50, 1700, 1000);
@@ -688,18 +779,22 @@ public class FrameNhanVien extends javax.swing.JFrame {
     //Set onclick cho jlbMenuBanHang
     private void lbl_MenuBanHangMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_MenuBanHangMouseReleased
         lbl_MenuBanHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/menubanhang2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_MenuBanHangMouseReleased
 
     private void lbl_MenuBanHangMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_MenuBanHangMousePressed
         lbl_MenuBanHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/menubanhang2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_MenuBanHangMousePressed
 
     private void lbl_MenuBanHangMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_MenuBanHangMouseExited
         lbl_MenuBanHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/menubanhang1.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien2.png"))); // NOI18N
     }//GEN-LAST:event_lbl_MenuBanHangMouseExited
 
     private void lbl_MenuBanHangMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_MenuBanHangMouseEntered
         lbl_MenuBanHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/menubanhang2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_MenuBanHangMouseEntered
 
     private void lbl_MenuBanHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_MenuBanHangMouseClicked
@@ -713,18 +808,22 @@ public class FrameNhanVien extends javax.swing.JFrame {
 
     private void lbl_NhapHangMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_NhapHangMouseEntered
        lbl_NhapHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhaphang2.png"))); // NOI18N
+       lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_NhapHangMouseEntered
 
     private void lbl_NhapHangMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_NhapHangMouseExited
         lbl_NhapHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhaphang1.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien2.png"))); // NOI18N
     }//GEN-LAST:event_lbl_NhapHangMouseExited
 
     private void lbl_NhapHangMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_NhapHangMousePressed
         lbl_NhapHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhaphang2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_NhapHangMousePressed
 
     private void lbl_NhapHangMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_NhapHangMouseReleased
         lbl_NhapHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhaphang2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_NhapHangMouseReleased
     
     //Set onclick cho jlbNhanVien
@@ -741,7 +840,7 @@ public class FrameNhanVien extends javax.swing.JFrame {
     }//GEN-LAST:event_lbl_NhanVienMouseEntered
 
     private void lbl_NhanVienMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_NhanVienMouseExited
-        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien2.png"))); // NOI18N
     }//GEN-LAST:event_lbl_NhanVienMouseExited
     
     private void lbl_NhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_NhanVienMouseClicked
@@ -751,18 +850,22 @@ public class FrameNhanVien extends javax.swing.JFrame {
     //Set onclick cho jlbKhachHang
     private void lbl_KhachHangMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_KhachHangMouseReleased
         lbl_KhachHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/khachhang2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_KhachHangMouseReleased
 
     private void lbl_KhachHangMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_KhachHangMousePressed
         lbl_KhachHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/khachhang2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_KhachHangMousePressed
 
     private void lbl_KhachHangMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_KhachHangMouseEntered
         lbl_KhachHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/khachhang2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_KhachHangMouseEntered
 
     private void lbl_KhachHangMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_KhachHangMouseExited
         lbl_KhachHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/khachhang1.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien2.png"))); // NOI18N
     }//GEN-LAST:event_lbl_KhachHangMouseExited
 
     private void lbl_KhachHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_KhachHangMouseClicked
@@ -772,18 +875,22 @@ public class FrameNhanVien extends javax.swing.JFrame {
     //Set onclick cho jlbMon
     private void lbl_MonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_MonMouseReleased
         lbl_Mon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/mon2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_MonMouseReleased
 
     private void lbl_MonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_MonMousePressed
         lbl_Mon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/mon2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_MonMousePressed
 
     private void lbl_MonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_MonMouseEntered
         lbl_Mon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/mon2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_MonMouseEntered
 
     private void lbl_MonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_MonMouseExited
         lbl_Mon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/mon1.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien2.png"))); // NOI18N
     }//GEN-LAST:event_lbl_MonMouseExited
 
     private void lbl_MonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_MonMouseClicked
@@ -793,18 +900,22 @@ public class FrameNhanVien extends javax.swing.JFrame {
     //Set onclick cho jlbLuong
     private void lbl_LuongMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_LuongMouseReleased
         lbl_Luong.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/luong2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_LuongMouseReleased
 
     private void lbl_LuongMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_LuongMousePressed
         lbl_Luong.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/luong2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_LuongMousePressed
 
     private void lbl_LuongMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_LuongMouseEntered
         lbl_Luong.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/luong2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_LuongMouseEntered
 
     private void lbl_LuongMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_LuongMouseExited
         lbl_Luong.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/luong1.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien2.png"))); // NOI18N
     }//GEN-LAST:event_lbl_LuongMouseExited
 
     private void lbl_LuongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_LuongMouseClicked
@@ -814,18 +925,22 @@ public class FrameNhanVien extends javax.swing.JFrame {
     //Set onclick cho jlbNhaCungCap
     private void lbl_NhaCungCapMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_NhaCungCapMouseReleased
         lbl_NhaCungCap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhacungcap2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_NhaCungCapMouseReleased
 
     private void lbl_NhaCungCapMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_NhaCungCapMousePressed
         lbl_NhaCungCap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhacungcap2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_NhaCungCapMousePressed
 
     private void lbl_NhaCungCapMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_NhaCungCapMouseEntered
         lbl_NhaCungCap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhacungcap2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_NhaCungCapMouseEntered
 
     private void lbl_NhaCungCapMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_NhaCungCapMouseExited
         lbl_NhaCungCap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhacungcap1.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien2.png"))); // NOI18N
     }//GEN-LAST:event_lbl_NhaCungCapMouseExited
 
     private void lbl_NhaCungCapMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_NhaCungCapMouseClicked
@@ -835,18 +950,22 @@ public class FrameNhanVien extends javax.swing.JFrame {
     //Set onclick cho jlbKhuyenMai
     private void lbl_KhuyenMaiMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_KhuyenMaiMouseReleased
         lbl_KhuyenMai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/khuyenmai2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_KhuyenMaiMouseReleased
 
     private void lbl_KhuyenMaiMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_KhuyenMaiMousePressed
         lbl_KhuyenMai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/khuyenmai2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_KhuyenMaiMousePressed
 
     private void lbl_KhuyenMaiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_KhuyenMaiMouseEntered
         lbl_KhuyenMai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/khuyenmai2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_KhuyenMaiMouseEntered
 
     private void lbl_KhuyenMaiMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_KhuyenMaiMouseExited
         lbl_KhuyenMai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/khuyenmai1.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien2.png"))); // NOI18N
     }//GEN-LAST:event_lbl_KhuyenMaiMouseExited
 
     private void lbl_KhuyenMaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_KhuyenMaiMouseClicked
@@ -856,18 +975,22 @@ public class FrameNhanVien extends javax.swing.JFrame {
     //Set onclick cho jlbUuDai
     private void lbl_UuDaiMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_UuDaiMouseReleased
         lbl_UuDai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/uudai2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_UuDaiMouseReleased
 
     private void lbl_UuDaiMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_UuDaiMousePressed
         lbl_UuDai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/uudai2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_UuDaiMousePressed
 
     private void lbl_UuDaiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_UuDaiMouseEntered
         lbl_UuDai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/uudai2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_UuDaiMouseEntered
 
     private void lbl_UuDaiMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_UuDaiMouseExited
         lbl_UuDai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/uudai1.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien2.png"))); // NOI18N
     }//GEN-LAST:event_lbl_UuDaiMouseExited
 
     private void lbl_UuDaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_UuDaiMouseClicked
@@ -877,18 +1000,22 @@ public class FrameNhanVien extends javax.swing.JFrame {
     //Set onclick cho jlbChucVu
     private void lbl_ChucVuMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_ChucVuMouseReleased
         lbl_ChucVu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/chucvu2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_ChucVuMouseReleased
 
     private void lbl_ChucVuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_ChucVuMousePressed
         lbl_ChucVu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/chucvu2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_ChucVuMousePressed
 
     private void lbl_ChucVuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_ChucVuMouseEntered
         lbl_ChucVu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/chucvu2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_ChucVuMouseEntered
 
     private void lbl_ChucVuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_ChucVuMouseExited
         lbl_ChucVu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/chucvu1.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien2.png"))); // NOI18N
     }//GEN-LAST:event_lbl_ChucVuMouseExited
 
     private void lbl_ChucVuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_ChucVuMouseClicked
@@ -898,18 +1025,22 @@ public class FrameNhanVien extends javax.swing.JFrame {
     //Set onclick cho jlbTaiKhoan
     private void lbl_TaiKhoanMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_TaiKhoanMouseReleased
         lbl_TaiKhoan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/taikhoan2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_TaiKhoanMouseReleased
 
     private void lbl_TaiKhoanMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_TaiKhoanMousePressed
         lbl_TaiKhoan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/taikhoan2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_TaiKhoanMousePressed
 
     private void lbl_TaiKhoanMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_TaiKhoanMouseEntered
         lbl_TaiKhoan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/taikhoan2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_TaiKhoanMouseEntered
 
     private void lbl_TaiKhoanMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_TaiKhoanMouseExited
         lbl_TaiKhoan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/taikhoan1.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien2.png"))); // NOI18N
     }//GEN-LAST:event_lbl_TaiKhoanMouseExited
 
     private void lbl_TaiKhoanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_TaiKhoanMouseClicked
@@ -919,18 +1050,22 @@ public class FrameNhanVien extends javax.swing.JFrame {
     //Set onclick cho jlbQuanLyApp
     private void lbl_QuanLyAppMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_QuanLyAppMouseReleased
         lbl_QuanLyApp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/quanlyapp2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_QuanLyAppMouseReleased
 
     private void lbl_QuanLyAppMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_QuanLyAppMousePressed
         lbl_QuanLyApp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/quanlyapp2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_QuanLyAppMousePressed
 
     private void lbl_QuanLyAppMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_QuanLyAppMouseEntered
         lbl_QuanLyApp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/quanlyapp2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_QuanLyAppMouseEntered
 
     private void lbl_QuanLyAppMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_QuanLyAppMouseExited
         lbl_QuanLyApp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/quanlyapp1.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien2.png"))); // NOI18N
     }//GEN-LAST:event_lbl_QuanLyAppMouseExited
 
     private void lbl_QuanLyAppMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_QuanLyAppMouseClicked
@@ -940,18 +1075,22 @@ public class FrameNhanVien extends javax.swing.JFrame {
     //Set onclick cho jlbTinhThue
     private void lbl_TinhThueMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_TinhThueMouseReleased
         lbl_TinhThue.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/tinhthue2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_TinhThueMouseReleased
 
     private void lbl_TinhThueMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_TinhThueMousePressed
         lbl_TinhThue.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/tinhthue2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_TinhThueMousePressed
 
     private void lbl_TinhThueMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_TinhThueMouseEntered
         lbl_TinhThue.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/tinhthue2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_TinhThueMouseEntered
 
     private void lbl_TinhThueMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_TinhThueMouseExited
         lbl_TinhThue.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/tinhthue1.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien2.png"))); // NOI18N
     }//GEN-LAST:event_lbl_TinhThueMouseExited
 
     private void lbl_TinhThueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_TinhThueMouseClicked
@@ -961,18 +1100,22 @@ public class FrameNhanVien extends javax.swing.JFrame {
     //Set onclick cho jlbTKBanHang
     private void lbl_TKBanHangMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_TKBanHangMouseReleased
         lbl_TKBanHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/TKBanhang2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_TKBanHangMouseReleased
 
     private void lbl_TKBanHangMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_TKBanHangMousePressed
         lbl_TKBanHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/TKBanhang2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_TKBanHangMousePressed
 
     private void lbl_TKBanHangMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_TKBanHangMouseEntered
         lbl_TKBanHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/TKBanhang2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_TKBanHangMouseEntered
 
     private void lbl_TKBanHangMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_TKBanHangMouseExited
         lbl_TKBanHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/TKBanhang1.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien2.png"))); // NOI18N
     }//GEN-LAST:event_lbl_TKBanHangMouseExited
 
     private void lbl_TKBanHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_TKBanHangMouseClicked
@@ -982,18 +1125,22 @@ public class FrameNhanVien extends javax.swing.JFrame {
     //Set onclick cho jlbTKBanHang
     private void lbl_TKChiTraMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_TKChiTraMouseReleased
         lbl_TKChiTra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/TKChitra2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_TKChiTraMouseReleased
 
     private void lbl_TKChiTraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_TKChiTraMousePressed
         lbl_TKChiTra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/TKChitra2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_TKChiTraMousePressed
 
     private void lbl_TKChiTraMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_TKChiTraMouseEntered
         lbl_TKChiTra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/TKChitra2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_TKChiTraMouseEntered
 
     private void lbl_TKChiTraMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_TKChiTraMouseExited
         lbl_TKChiTra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/TKChitra1.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien2.png"))); // NOI18N
     }//GEN-LAST:event_lbl_TKChiTraMouseExited
 
     private void lbl_TKChiTraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_TKChiTraMouseClicked
@@ -1003,24 +1150,28 @@ public class FrameNhanVien extends javax.swing.JFrame {
     //Set onclick cho jlbTKDoanhThu
     private void lbl_TKDoanhThuMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_TKDoanhThuMouseReleased
         lbl_TKDoanhThu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/TKDoanhthu2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_TKDoanhThuMouseReleased
 
     private void lbl_TKDoanhThuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_TKDoanhThuMousePressed
         lbl_TKDoanhThu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/TKDoanhthu2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_TKDoanhThuMousePressed
 
     private void lbl_TKDoanhThuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_TKDoanhThuMouseEntered
         lbl_TKDoanhThu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/TKDoanhthu2.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien1.png"))); // NOI18N
     }//GEN-LAST:event_lbl_TKDoanhThuMouseEntered
 
     private void lbl_TKDoanhThuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_TKDoanhThuMouseExited
         lbl_TKDoanhThu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/TKDoanhthu1.png"))); // NOI18N
+        lbl_NhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame/nhanvien2.png"))); // NOI18N
     }//GEN-LAST:event_lbl_TKDoanhThuMouseExited
 
     private void lbl_TKDoanhThuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_TKDoanhThuMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_lbl_TKDoanhThuMouseClicked
-    
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     //Set onclick cho lbl_ThemNhanVien
     private void lbl_ThemNhanVienMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_ThemNhanVienMousePressed
        lbl_ThemNhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nhanvien/themnhanvien2.png"))); // NOI18N
@@ -1039,7 +1190,16 @@ public class FrameNhanVien extends javax.swing.JFrame {
     }//GEN-LAST:event_lbl_ThemNhanVienMouseExited
 
     private void lbl_ThemNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_ThemNhanVienMouseClicked
-        // TODO add your handling code here:
+        int input=JOptionPane.showConfirmDialog(null, "Bạn muốn thêm nhân viên ?","Xác nhận",JOptionPane.YES_NO_OPTION);
+        // 0=yes, 1=no
+        if(input == 0){
+            try {
+                FrameThemNhanVien ThemNV=new FrameThemNhanVien();
+                ThemNV.setVisible(true);
+            } catch (Exception ex) {
+                Logger.getLogger(FrameNhanVien.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_lbl_ThemNhanVienMouseClicked
     
     //Set onclick cho lbl_XuatFile
@@ -1081,7 +1241,16 @@ public class FrameNhanVien extends javax.swing.JFrame {
     }//GEN-LAST:event_lbl_NhanVienBiAnMouseExited
 
     private void lbl_NhanVienBiAnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_NhanVienBiAnMouseClicked
-        // TODO add your handling code here:
+        int input=JOptionPane.showConfirmDialog(null, "Bạn muốn mở danh sách nhân viên bị ẩn ?","Xác nhận",JOptionPane.YES_NO_OPTION);
+        // 0=yes, 1=no
+        if(input==0){
+            try {
+                FrameNhanVienBiAn NhanVienAn = new FrameNhanVienBiAn();
+                NhanVienAn.setVisible(true);
+            } catch (Exception ex) {
+                Logger.getLogger(FrameNhanVien.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_lbl_NhanVienBiAnMouseClicked
     
     //Set onclick cho lbl_SuaNhanVien
@@ -1102,7 +1271,23 @@ public class FrameNhanVien extends javax.swing.JFrame {
     }//GEN-LAST:event_lbl_SuaNhanVienMouseExited
 
     private void lbl_SuaNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_SuaNhanVienMouseClicked
-        // TODO add your handling code here:
+        int iSelect=tbl_NhanVien.getSelectedRow();
+        //Kiểm tra có chọn Row trong table không
+        if(iSelect>=0){
+            int input=JOptionPane.showConfirmDialog(null, "Bạn muốn sửa nhân viên ?","Xác nhận",JOptionPane.YES_NO_OPTION);
+            // 0=yes, 1=no
+            if(input==0){
+                try {
+                    FrameSuaNhanVien SuaNV= new FrameSuaNhanVien();
+                    SuaNV.setThongTin((String) model.getValueAt(iSelect, 1));
+                    SuaNV.setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(FrameNhanVien.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }else{
+            JOptionPane.showMessageDialog(null,"Bạn chưa chọn Row.");
+        }
     }//GEN-LAST:event_lbl_SuaNhanVienMouseClicked
     
     //Set onclick cho lbl_AnNhanVien
@@ -1123,12 +1308,47 @@ public class FrameNhanVien extends javax.swing.JFrame {
     }//GEN-LAST:event_lbl_AnNhanVienMouseExited
 
     private void lbl_AnNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_AnNhanVienMouseClicked
-        // TODO add your handling code here:
+        int iSelect=tbl_NhanVien.getSelectedRow();
+        //Kiểm tra có chọn Row trong table không
+        if(iSelect>=0){
+            int input=JOptionPane.showConfirmDialog(null, "Bạn muốn ẩn nhân viên ?","Xác nhận",JOptionPane.YES_NO_OPTION);
+            // 0=yes, 1=no
+            if(input==0){
+                try {    
+                    NhanVien.CapNhatTrangThai((String) model.getValueAt(iSelect, 1),"0");
+                } catch (Exception ex) {
+                    Logger.getLogger(FrameNhanVien.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }else{
+            JOptionPane.showMessageDialog(null,"Bạn chưa chọn Row.");
+        }
     }//GEN-LAST:event_lbl_AnNhanVienMouseClicked
-
+    
+    //Set onclick cho lbl_TimKiem
     private void txt_TimKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_TimKiemActionPerformed
-        // TODO add your handling code here:
+        lbl_TimKiem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nhanvien/timkiem2.png"))); // NOI18N
     }//GEN-LAST:event_txt_TimKiemActionPerformed
+
+    private void lbl_TimKiemMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_TimKiemMousePressed
+        lbl_TimKiem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nhanvien/timkiem2.png"))); // NOI18N
+    }//GEN-LAST:event_lbl_TimKiemMousePressed
+
+    private void lbl_TimKiemMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_TimKiemMouseReleased
+        lbl_TimKiem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nhanvien/timkiem2.png"))); // NOI18N
+    }//GEN-LAST:event_lbl_TimKiemMouseReleased
+
+    private void lbl_TimKiemMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_TimKiemMouseEntered
+        lbl_TimKiem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nhanvien/timkiem2.png"))); // NOI18N
+    }//GEN-LAST:event_lbl_TimKiemMouseEntered
+
+    private void lbl_TimKiemMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_TimKiemMouseExited
+        lbl_TimKiem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nhanvien/timkiem1.png"))); // NOI18N
+    }//GEN-LAST:event_lbl_TimKiemMouseExited
+
+    private void lbl_TimKiemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_TimKiemMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lbl_TimKiemMouseClicked
     
     /**
      * @param args the command line arguments
@@ -1163,13 +1383,21 @@ public class FrameNhanVien extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrameNhanVien().setVisible(true);
+                try {
+                    new FrameNhanVien().setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(FrameNhanVien.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane cpTableNhanVien;
+    private com.toedter.calendar.JDateChooser dc_NgaySinhDen;
+    private com.toedter.calendar.JDateChooser dc_NgaySinhTu;
+    private com.toedter.calendar.JDateChooser dc_NgayVaoLamDen;
+    private com.toedter.calendar.JDateChooser dc_NgayVaoLamTu;
     private javax.swing.JLabel lbl_AnNhanVien;
     private javax.swing.JLabel lbl_ChucVu;
     private javax.swing.JLabel lbl_Close;
@@ -1181,6 +1409,10 @@ public class FrameNhanVien extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_MenuBanHang;
     private javax.swing.JLabel lbl_MenuLeft;
     private javax.swing.JLabel lbl_Mon;
+    private javax.swing.JLabel lbl_NgaySinh1;
+    private javax.swing.JLabel lbl_NgaySinh2;
+    private javax.swing.JLabel lbl_NgayVaoLam1;
+    private javax.swing.JLabel lbl_NgayVaoLam2;
     private javax.swing.JLabel lbl_NhaCungCap;
     private javax.swing.JLabel lbl_NhanVien;
     private javax.swing.JLabel lbl_NhanVienBiAn;

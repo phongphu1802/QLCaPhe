@@ -82,7 +82,7 @@ public class MyConnectUnit {
         
         for(String key: ColumnValues.keySet()){
             query.append(key+",");
-            valueInsert.append("'"+ColumnValues.get(key).toString()+"' ,");
+            valueInsert.append("N'"+ColumnValues.get(key).toString()+"' ,");
             
         }
         
@@ -91,7 +91,7 @@ public class MyConnectUnit {
         valueInsert = valueInsert.delete(valueInsert.length()-1,valueInsert.length());
         
         //Đưa giá trị của cột vào câu query
-        query.append(") VALUE("+valueInsert.toString()+")");
+        query.append(") VALUES("+valueInsert.toString()+")");
         
         // Chèn ký tự ';' vào cuối dòng lệnh để cách các câu
         query.append(";");
@@ -106,7 +106,7 @@ public class MyConnectUnit {
         
         //Duyệt và đưa thông tin tên cột và giá trị của cột vào câu Select
         for(String key: ColumnValues.keySet()){
-            query.append(key+" = '"+ColumnValues.get(key).toString()+"' ,");     
+            query.append(key+" = N'"+ColumnValues.get(key).toString()+"' ,");     
         }
         //Cắt bớt ký tự ',' cuối câu
         query = query.delete(query.length()-1,query.length());
@@ -118,6 +118,7 @@ public class MyConnectUnit {
         query.append(";");
         
         //Thực thi câu query và trả kết quả ra ngoài
+        System.out.print(query);
         return this.connect.executeUpdate(query.toString())>0;
     }
     
@@ -167,7 +168,7 @@ public class MyConnectUnit {
         this.connect.Close();
     }
     public static void main(String[] args) throws SQLException, Exception {
-        MyConnectUnit s1= new MyConnectUnit("localhost","sa","123456789","csdlcaphe");
+        MyConnectUnit s1= new MyConnectUnit("localhost","sa","sa","csdlcaphe");
         s1.Select("nhanvien");
     }
 }

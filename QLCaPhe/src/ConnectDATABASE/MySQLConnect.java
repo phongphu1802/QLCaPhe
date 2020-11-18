@@ -91,6 +91,6 @@ public class MySQLConnect {
     }
 
     public static void main(String[] args) throws SQLException, Exception {
-        MySQLConnect s1= new MySQLConnect("localhost","sa","123456789","csdlcaphe");
+        MySQLConnect s1= new MySQLConnect("localhost","sa","sa","csdlcaphe");
     }
 }
